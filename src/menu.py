@@ -89,6 +89,10 @@ class UiMainWindow(SettingsMenu):
         msg.setText("Чтобы сделать снимок нажмите esc")
         msg.exec_()
         fileName = make_screen()
+        if fileName == -1:
+            self.showErrors("Нет доступа к вебкамере")
+            logging.debug("Веб-камера не подключена, что вызвало исключение")
+            return -1
         screen = QtGui.QPixmap(fileName)
         self.label_photo.setGeometry(QtCore.QRect(70, 120, 557, 477))
         self.label_photo.setPixmap(screen)
@@ -109,7 +113,7 @@ class UiMainWindow(SettingsMenu):
         fileName:str - переменная содержащая путь к изображению
         """
         
-        fileName, fileType = QFileDialog.getOpenFileName(
+        fileName, _ = QFileDialog.getOpenFileName(
             None,"Выбрать изображение","../imgs","Image (*.png *.jpg *.jpeg)")
         if fileName=='':
             self.showErrors("Изображение не выбрано")

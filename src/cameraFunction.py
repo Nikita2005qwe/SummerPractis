@@ -1,4 +1,4 @@
-from cv2 import VideoCapture, destroyAllWindows, imshow, waitKey, imwrite
+from cv2 import VideoCapture, destroyAllWindows, imshow, waitKey, imwrite, error
 from random import randint
     
 def make_screen():
@@ -14,7 +14,10 @@ def make_screen():
     
     while True:
         ret, img = cap.read()
-        imshow("camera", img)
+        try:
+            imshow("camera", img)
+        except error:
+            return -1
         if waitKey(1) == 27:
             
             hash_ = [str(randint(0, 9)) for i in range(6)]
