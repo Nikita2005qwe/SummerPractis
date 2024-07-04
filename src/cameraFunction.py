@@ -1,4 +1,5 @@
-from cv2 import VideoCapture, destroyAllWindows, imshow, waitKey, imwrite, error
+from cv2 import (VideoCapture, destroyAllWindows, imshow,
+                 waitKey, imwrite, error)
 from random import randint
     
 def make_screen():
