@@ -19,32 +19,26 @@ python main.py
 Инструкция для Linux:
 
 1. Установите необходимые зависимости:
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 
 возможная проблема:
 error: externally-managed-environment
 
-для её решения попробуйте несколько методов:
+для её решения воспользуйтесь следующим методом:
 
-1.1 создать окружение и после этого выполнить установку
+удебитесь что у вас установлен python3-venv:
+sudo apt install python3-venv
 
-python -m venv PractisVenv
+создайте окружение и после этого выполните установку
+
+python3 -m venv PractisVenv
 source PractisVenv/bin/activate
-pip install -r requirements.txt
-
-1.2 Используйте pipx
-
-sudo apt install pipx
-pipx install -r requirements.txt
-
-1.3 добавление флага --break-system-packages
-
-pip install -r requirements.txt --break-system-packages
+pip3 install -r requirements.txt
 
 2. Перейдите в папку src:
 cd src
 
 3. Для запуска приложения в своём терминале выполните команду:
-python main.py
+python3 main.py
 
 Обратите внимание, что путь к файлу main.py не должен содержать кириллицы
