@@ -29,6 +29,7 @@ error: externally-managed-environment
 1.1 создать окружение и после этого выполнить установку
 
 python -m venv PractisVenv
+source PractisVenv/bin/activate
 pip install -r requirements.txt
 
 1.2 Используйте pipx
